@@ -182,8 +182,8 @@ void handle_cpuid(void){
     if (operation == 0x00000000){
         vmcb->state_save_area.rax = 0xffffffff;
         *(uint64_t *)(__global_Guest_Reg_Store + 32) = 0x20796548;
-        *(uint64_t *)(__global_Guest_Reg_Store + 40) = 0x54508367;
-        *(uint64_t *)(__global_Guest_Reg_Store + 48) = 0x293A2049;
+        *(uint64_t *)(__global_Guest_Reg_Store + 40) = 0x36325343;
+        *(uint64_t *)(__global_Guest_Reg_Store + 48) = 0x293A2031;
     }
     
     vmcb->state_save_area.rip = vmcb->control_area.nRIP;
