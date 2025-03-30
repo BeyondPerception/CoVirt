@@ -34,7 +34,7 @@ struct apic_ba_reg get_apic_info(void){
 void print_apic_info(void){
 	struct apic_ba_reg bar;
 	bar = get_apic_info();
-	phys_addr_t base_addr = bar.base_addr;
+//	phys_addr_t base_addr = bar.base_addr;
 	DEBUG_PRINT("xAPIC base address: %llx\n", bar.base_addr);
 	DEBUG_PRINT("Is bootstrap core: %x\n", bar.bsc);
 	DEBUG_PRINT("Is APIC Enabled: %x\n", bar.enabled);

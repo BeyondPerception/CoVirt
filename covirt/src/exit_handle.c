@@ -125,13 +125,13 @@ void handle_phys_int(void){
 
 void handle_ioio(void){
     vmcb_t * vmcb = (vmcb_t *) __global_VMCB_VA;
-    uint64_t ecode = vmcb->control_area.EXIT_CODE;
+//    uint64_t ecode = vmcb->control_area.EXIT_CODE;
     uint64_t einfo1 = vmcb->control_area.EXIT_INFO1;
     uint64_t einfo2 = vmcb->control_area.EXIT_INFO2;
 
     // Decoding EXITINFO1
     int io_type = einfo1 & 0x1;    // 1 = Read, 0 = Write
-    int str_based = einfo1 & (0x1 << 2);  // (INS, OUTS)
+//    int str_based = einfo1 & (0x1 << 2);  // (INS, OUTS)
     int op_size;    // Operand Size
     int addr_size;  // N-bit Address
     int port_num;   // Intercepted I/O Port
@@ -182,8 +182,8 @@ void handle_cpuid(void){
     if (operation == 0x00000000){
         vmcb->state_save_area.rax = 0xffffffff;
         *(uint64_t *)(__global_Guest_Reg_Store + 32) = 0x20796548;
-        *(uint64_t *)(__global_Guest_Reg_Store + 40) = 0x72656854;
-        *(uint64_t *)(__global_Guest_Reg_Store + 48) = 0x293A2065;
+        *(uint64_t *)(__global_Guest_Reg_Store + 40) = 0x54508367;
+        *(uint64_t *)(__global_Guest_Reg_Store + 48) = 0x293A2049;
     }
     
     vmcb->state_save_area.rip = vmcb->control_area.nRIP;

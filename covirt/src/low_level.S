@@ -136,7 +136,7 @@ exit_stuff:
 
 	// We shouldn't hit here I don't think...
 	
-	ret
+//	ret
 
 /*
 
